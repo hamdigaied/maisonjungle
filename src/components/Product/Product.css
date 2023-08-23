@@ -1,0 +1,37 @@
+img {
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.product {
+    margin: .5rem;
+    position: relative;
+    height: fit-content;
+}
+
+span {
+    position: absolute;
+    border-radius: 20px 20px 20px 0;
+    background-color: #31b472;
+    color: #fff;
+    padding: 15px;
+    right: 0;
+    top: 0;
+    font-weight: 500;
+}
+
+.flex {
+    display: flex;
+}
+
+.add-to-cart {
+    border-radius: 10px;
+    border: none;
+    background-color: #31b472;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: 700;
+}
