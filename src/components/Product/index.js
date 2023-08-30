@@ -10,15 +10,15 @@ function Product({ name, price, image, water, sun, addToCart }) {
             <p>{name}</p>
             <div className='flex'>
                 {
-                    [...Array(water)].map(w => <WaterIcon />)
+                    [...Array(water)].map((w, i) => <WaterIcon key={i} />)
                 }
             </div>
             <div className='flex'>
                 {
-                    [...Array(sun)].map(w => <SunIcon />)
+                    [...Array(sun)].map((w, i) => <SunIcon key={i} />)
                 }
             </div>
-            <button className='add-to-cart' onClick={addToCart}>Ajouter</button>
+            <button className='add-to-cart' onClick={() => addToCart(name, price)}>Ajouter</button>
         </div>
     )
 }

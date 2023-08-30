@@ -10,7 +10,7 @@ import basil from './../../assets/basil.jpg';
 import succulent from './../../assets/succulent.jpg';
 import mint from './../../assets/mint.jpg';
 
-function Shop() {
+function Shop({ cart, setCart }) {
     const products = [
         {
             name: "Monstera",
@@ -77,15 +77,23 @@ function Shop() {
         }
     ]
 
-    const handleAddToCart = () => {
-        alert("added")
+    const handleAddToCart = (name, price) => {
+        let productExist = cart.find(c => c.name === name)
+        if (productExist) {
+            let newProducts = cart.filter(c => c.name !== name)
+            newProducts.push({ name: name, quantity: productExist.quantity + 1, subtotal: price * (productExist.quantity + 1) })
+            setCart(newProducts)
+        } else {
+            setCart([...cart, { name: name, quantity: 1, subtotal: price }])
+        }
     }
 
     return (
         <section>
             {
-                products.map(product => (
+                products.map((product, index) => (
                     <Product
+                        key={index}
                         name={product.name}
                         price={product.price}
                         image={product.image}
